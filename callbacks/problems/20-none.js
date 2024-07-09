@@ -3,9 +3,7 @@ Write a function `none` that accepts an array and a callback as arguments.
 The function should call the callback for each element of the array, passing in
 the element. The function should return true if all
 elements of the array result to false when passed into the callback. Otherwise,
-the method should return false.
-
-Examples:
+the method should return false. Examples:
 
 let result1 = none(['ruby', 'topaz', 'opal'], function(w) {
     return w.includes('e');
@@ -28,8 +26,12 @@ let result4 = none([4, -5, 7, -1], function(n) {
 console.log(result4);   // false
 *******************************************************************************/
 
-let none = function() {
-
+let none = function(arr, cb) {
+    for(let i=0; i<arr.length; i++){
+        if(cb(arr[i])===true)
+            return false
+    }
+    return true
 };
 
 
