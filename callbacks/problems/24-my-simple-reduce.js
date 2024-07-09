@@ -2,13 +2,10 @@
 Write a function `mySimpleReduce` that accepts an array and a callback as arguments.
 The function should mimic the behavior of the built in Array#reduce, utilizing the
 first element of the array as the default accumulator.
-
 In other words, the function should begin with the first element of the array as
 the accumulator and call the callback for each of the remaining elements in the array,
 passing in the current accumulator and current element into the callback. Upon calling the callback,
-the accumulator should be set to the result of the callback.
-
-Examples:
+the accumulator should be set to the result of the callback. Examples:
 
 let result1 = mySimpleReduce([5, 3, 2, 4], function(sum, el) {
     return sum + el;
@@ -34,8 +31,12 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
   optional initial accumulator
 *******************************************************************************/
 
-let mySimpleReduce = function() {
-
+let mySimpleReduce = function(arr, cb) {
+    let accumulator = arr[0]
+    for(let i=1; i<arr.length; i++){
+        accumulator = cb(accumulator, arr[i])
+    }
+    return accumulator
 };
 
 
