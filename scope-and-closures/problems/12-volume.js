@@ -24,7 +24,20 @@ console.log(table2(75)); // STILL prints 6
 
 ***********************************************************************/
 function recVolume(height) {
-  // Your code here
+  let dimensions = [height];
+  let volume;
+
+  function calc(arg) {
+    if (dimensions.length < 3) {
+      dimensions.push(arg);
+      if (dimensions.length === 3) {
+        volume = dimensions.reduce((accu, curr) => accu * curr, 1);
+      }
+    }
+    return volume;
+  }
+
+  return calc;
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
