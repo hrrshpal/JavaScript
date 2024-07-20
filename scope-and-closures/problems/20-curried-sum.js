@@ -1,10 +1,8 @@
 /***********************************************************************
-
 Currying is the process of decomposing a function that takes multiple arguments
 into one that takes single arguments successively until it has the sufficient
 number of arguments to run.This technique is named after the
 logician Haskell Curry(the functional programming language Haskell is, too).
-
 Write a `curriedSum` function that takes an integer(how many numbers to sum)
 and returns a function that can be successively called with single arguments
 until it finally returns a sum.
@@ -43,7 +41,19 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
 ***********************************************************************/
 
 function curriedSum(numArgs) {
-  // Your code here
+  let numbers = []
+  function _curriedSum(num){
+    numbers.push(num)
+    if(numbers.length === numArgs){
+      let sum = numbers.reduce(function(accu,curr){
+        return accu+curr
+      },0)
+      return sum
+    } else{
+      return _curriedSum
+    }
+  }
+  return _curriedSum
 }
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
