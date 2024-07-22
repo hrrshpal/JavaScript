@@ -2,11 +2,9 @@
 The `setSecondsTimeout` you wrote was cool, but it's missing some functionality.
 The built-in `setTimeout` can also accept any additional number of arguments that
 will be passed to the callback.
-
 Write a function, `setSecondsTimeoutArgs`, that accepts a callback, a delay
 in seconds, and any number of additional arguments. The function should call the
 callback with the additional arguments after the specified delay.
-
 In addition to Mocha, we recommend that you test your code manually using node
 with the examples below.
 
@@ -23,7 +21,7 @@ setSecondsTimeoutArgs(function(arg1, arg2) {
 ***********************************************************************/
 
 function setSecondsTimeoutArgs(cb, delayInSeconds, ...args) {
-  // Your code here
+  setTimeout(cb, delayInSeconds*1000, ...args)
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/

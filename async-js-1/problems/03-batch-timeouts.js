@@ -1,22 +1,16 @@
 /***********************************************************************
-Write a function, `batchTimeouts`, that accepts an array of callbacks and an
-array of delays in milliseconds. The function should set a timeout for each
-callback in the array with its corresponding delay. For example, the
-callback at index 0 should be set with the delay at index 0,
-the callback at index 1 should be set with the delay at index 1, and so on.
-The `batchTimeouts` function should return an array containing the Timeout
-objects for each timeout that was set. You may assume that both array arguments 
-have the same length.
+Write a function, `batchTimeouts`, that accepts an array of callbacks and an array of delays in milliseconds. The function 
+should set a timeout for each callback in the array with its corresponding delay. For example, the callback at index 0 should be set
+with the delay at index 0, the callback at index 1 should be set with the delay at index 1, and so on.
+The `batchTimeouts` function should return an array containing the Timeout objects for each timeout that was set. You may assume that 
+both array arguments have the same length.
 
-In addition to Mocha, we recommend that you test your code manually using 
-node with the examples below to confirm the correct behavior.
+In addition to Mocha, we recommend that you test your code manually using node with the examples below to confirm the correct behavior.
 
-Note: The test specs for this problem are valid for iterative solutions. If you
-pass the specs for an iterative solution and then attempt a recursive solution,
-you will need to test your new solution manually using node.
+Note: The test specs for this problem are valid for iterative solutions. If you pass the specs for an iterative solution and then
+attempt a recursive solution, you will need to test your new solution manually using node.
 
 Example:
-
 const sayHello = () => console.log('hi');
 const sayGoodbye = () => console.log('bye');
 const shout = () => console.log('WHAT?');
@@ -33,7 +27,11 @@ console.log(timeoutObjs); // [ Timeout {...},  Timeout {...}, Timeout {...} ]
 ***********************************************************************/
 
 function batchTimeouts(callbacks, delays) {
-  // Your code here
+  let arr = []
+  for(let i=0; i<callbacks.length; i++){
+    arr.push(setTimeout(callbacks[i],delays[i]))
+  }
+  return arr
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
