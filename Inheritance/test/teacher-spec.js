@@ -10,8 +10,8 @@ describe("Teacher class", () => {
   let teacher2;
 
   beforeEach(() => {
-    teacher1 = new Teacher("susan", "jones", "biology", 5);
-    teacher2 = new Teacher("bobby", "roberts", "math", 15);
+    teacher1 = new Teacher("susan", "jones",40, "biology", 5);
+    teacher2 = new Teacher("bobby", "roberts",45, "math", 15);
   });
 
   describe("Teacher constructor", () => {
@@ -23,6 +23,11 @@ describe("Teacher class", () => {
     it("should set the lastName property", () => {
       expect(teacher1).to.have.property("lastName");
       expect(teacher1.lastName).to.eql("jones");
+    });
+
+    it("should set the age property", () => {
+      expect(teacher1).to.have.property("age");
+      expect(teacher1.age).to.eql(40);
     });
 
     it("should set the subject property", () => {
