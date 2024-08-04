@@ -9,7 +9,7 @@ describe("Student class", () => {
   let student1;
 
   beforeEach(() => {
-    student1 = new Student("billy", "johnson", "software-development", 3.2);
+    student1 = new Student("billy", "johnson",20, "software-development", 3.2);
   });
 
   describe("Student constructor", () => {
@@ -22,6 +22,11 @@ describe("Student class", () => {
       expect(student1).to.have.property("lastName");
       expect(student1.lastName).to.equal("johnson");
     });
+
+    it("should set the age property", () => {
+      expect(student1).to.have.property("age");
+      expect(student1.age).to.equal(20);
+    });    
 
     it("should set the major property", () => {
       expect(student1).to.have.property("major");
@@ -37,20 +42,20 @@ describe("Student class", () => {
 
   describe("compareGPA static method", () => {
     it("should return the student with the highest GPA", () => {
-      let student2 = new Student("sarah", "smith", "basket-weaving", 3.7);
+      let student2 = new Student("sarah", "smith",21, "basket-weaving", 3.7);
 
       expect(Student.compareGPA(student1, student2)).to.equal(
         "sarah smith has the higher GPA."
       );
       
-      let student3 = new Student("roger", "rabbit", "cartoon-director", 3.5);
+      let student3 = new Student("roger", "rabbit",22, "cartoon-director", 3.5);
       expect(Student.compareGPA(student2, student3)).to.eql(
         "sarah smith has the higher GPA."
       );
     });
 
     it("should return a message if the GPA's are the same", () => {
-      let student2 = new Student("sarah", "smith", "bird-watching", 3.2);
+      let student2 = new Student("sarah", "smith",21, "bird-watching", 3.2);
 
       expect(Student.compareGPA(student1, student2)).to.equal(
         "Both students have the same GPA"
